@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>Leaflet GeoJSON Example</title>
+	<meta charset="utf-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+
+	<link rel="stylesheet" href="assets/leaflet.css">
+</head>
+<body>
+
+
+	<div class="container">
+		<h3>Prueba de mapas<span class="small" id="loading"></span></h3>
+		<div class="row">
+
+			<div class="col-md-3">
+				Archivos convertidos y simplificados usando las siguientes herramientas de línea de comandos:
+				<ul>
+					<li>
+						<a href="http://www.gdal.org/ogr2ogr.html" target="_blank">ogr2ogr</a>
+					</li>
+					<li>
+						<a href="https://github.com/mbostock/topojson" target="_blank">TopoJson</a>
+					</li>
+					<li>
+						<a href="http://zevross.com/blog/2014/04/22/spatial-data-on-a-diet-tips-for-file-size-reduction-using-topojson/" target="_blank">Simplificando </a>
+					</li>
+				</ul> 
+			</div>
+
+			<div class="col-md-3">
+				<p>Inventario_Usos_Infraestructuras_Criticas</p>
+				<p class="small text-success">Son archivos livianos, ideales para web.</p>
+				<a class="btn btn-default" href="javascript:loadGeoJSON('Inventario_Usos_Infraestructuras_Criticas.geojson')">GeoJSON - 1.1MB</a>
+				<a class="btn btn-default" href="javascript:loadKml('Inventario_Usos_Infraestructuras_Criticas.kml')">KML - 1MB</a>
+				<a class="btn btn-default" href="javascript:loadTopoJSON('Inventario_Usos_Infraestructuras_Criticas.json')">TopoJSON - 65kB</a>
+				<a class="btn btn-default" href="javascript:loadTopoJSON('Inventario_Usos_Infraestructuras_Criticas-sm.json')">TopoJSON Simplified - 44kB</a>
+			</div>
+
+			<div class="col-md-3">
+				<p>Inventario_Usos_Areas_Comerciales</p>
+				<p class="small text-warning">Son archivos medianos, fueron reducidos y mantienen calidad.</p>
+				<a class="btn btn-default" href="javascript:loadGeoJSON('Inventario_Usos_Areas_Comerciales.geojson')">GeoJSON - 2MB</a>
+				<a class="btn btn-default" href="javascript:loadKml('Inventario_Usos_Areas_Comerciales.kml')">KML - 1.9MB</a>
+				<a class="btn btn-default" href="javascript:loadTopoJSON('Inventario_Usos_Areas_Comerciales.json')">TopoJSON - 142kB</a>
+				<a class="btn btn-default" href="javascript:loadTopoJSON('Inventario_Usos_Areas_Comerciales-sm.json')">TopoJSON Simplified - 105kB</a>
+			</div>
+	
+			<div class="col-md-3">
+				<p>Vulnerabilidad_Fisica_Escenario_SMART</p>
+				<p class="small text-danger">Son archivos muy grandes, puede colgarse el navegador mientras carga.</p>
+				<a class="btn btn-default" href="javascript:loadGeoJSON('Vulnerabilidad_Fisica_Escenario_SMART.geojson')">GeoJSON - 42.8MB</a>
+				<a class="btn btn-default" href="javascript:loadKml('Vulnerabilidad_Fisica_Escenario_SMART.kml')">KML - 40.1MB</a>
+				<a class="btn btn-default" href="javascript:loadTopoJSON('Vulnerabilidad_Fisica_Escenario_SMART.json')">TopoJSON - 2.9MB</a>
+				<a class="btn btn-default" href="javascript:loadTopoJSON('Vulnerabilidad_Fisica_Escenario_SMART-sm.json')">TopoJSON Simplified - 2MB</a>
+			</div>
+
+		</div>
+	
+		<div class="row">
+			<div class="col-md-12">
+				<a class="btn btn-info" href="javascript:clearLayers()">Clear Layers</a>
+				<div tabindex="0" class="leaflet-container leaflet-fade-anim" id="map" style="width: 900px; height: 600px; position: relative;"></div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script src="assets/leaflet.js"></script>
+	<script src="assets/leaflet-omnivore.min.js"></script>
+	<script src="assets/main.js"></script>
+
+</body></html>
